@@ -1,28 +1,30 @@
+#include "pch.h"
 #include <string.h>
+#pragma warning(disable : 4996)
 
 class String
 {
 private:
-	char* str;
-	size_t length;
+	size_t _length;
+	char* _str;
 public:
 	String(const char* str)
 	{
-		this->length = strlen(str);
-		this->str = new char[length+1];
-		strcpy(this->str, str);
+		this->_length = strlen(str);
+		this->_str = new char[_length+1];
+		strcpy(this->_str, str);
 	}
 	~String()
 	{
-		delete[] str;
+		delete[] _str;
 	}
 	const char* c_str(void) const
 	{
-		return str;
+		return _str;
 	}
 	size_t GetLength(void) const
 	{
-		return length;
+		return _length;
 	}
 	void Concatenate(const char* str)
 	{
